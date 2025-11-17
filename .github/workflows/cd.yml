@@ -1,4 +1,4 @@
-name: Build - Authorization Service
+name: Delivery - Authorization Service
 
 on:
   push:
