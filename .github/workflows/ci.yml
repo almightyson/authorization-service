@@ -1,4 +1,4 @@
-name: CI - Authorization Service
+name: Integration - Authorization Service
 
 on:
   push:
