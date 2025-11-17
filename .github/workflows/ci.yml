@@ -11,29 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # 1. Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v5
 
-    - name: Set up Java
-      uses: actions/setup-java@v3
-      with:
-        java-version: 17
-        distribution: temurin
+      # 2. Set up Java
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: maven  # caches ~/.m2 to speed up builds
 
-    - name: Cache Maven packages
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
+      # 3. Build and run tests
+      - name: Build with Maven
+        run: mvn --batch-mode clean verify
 
-    - name: Build & Test
-      run: mvn -B clean verify
-
-    - name: Upload Test Reports
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-reports
-        path: target/surefire-reports/
+      # 4. Upload build artifacts (optional)
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: authorization-service-artifact
+          path: target/*.jar
