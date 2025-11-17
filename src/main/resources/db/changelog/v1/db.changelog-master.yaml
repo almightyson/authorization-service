@@ -1,0 +1,28 @@
+databaseChangeLog:
+  # Schema
+  - includeAll:
+      path: db/changelog/v1/0100-schema
+  # Seed data
+  - includeAll:
+      path: db/changelog/v1/0200-seed-data
+  # Indexes
+  - includeAll:
+      path: db/changelog/v1/0300-indexes
+  # Constraints
+  - includeAll:
+      path: db/changelog/v1/0400-constraints
+  # Views
+  - includeAll:
+      path: db/changelog/v1/0500-views
+  # Functions / triggers
+  - includeAll:
+      path: db/changelog/v1/0600-functions
+  # Patches
+  - includeAll:
+      path: db/changelog/v1/0700-patches
+  # Rollbacks (optional)
+  - includeAll:
+      path: db/changelog/v1/0800-rollbacks
+  # Env-specific changes (optional)
+  - includeAll:
+      path: db/changelog/v1/0900-env-specific

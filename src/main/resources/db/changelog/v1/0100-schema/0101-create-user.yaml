@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-user-table
+      author: you
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - { name: id, type: BIGINT, constraints: { primaryKey: true } }
+              - { name: username, type: VARCHAR(50), constraints: { nullable: false } }
+
+  - changeSet:
+      id: 002-seed-test-users
+      author: you
+      context: dev
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - { name: id, value: 1 }
+              - { name: username, value: "dev_user" }

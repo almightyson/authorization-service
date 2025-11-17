@@ -1,0 +1,45 @@
+db/changelog/
+│
+├── db.changelog-master.yaml         # Global entry point
+│
+├── v1/                              # Version 1 of the database
+│   ├── db.changelog-master.yaml     # v1 master that includes all v1 changes
+│   │
+│   ├── 0100-schema/                 # Tables
+│   │   ├── 0101-create-user.yaml
+│   │   ├── 0102-create-role.yaml
+│   │   └── 0103-create-user-role.yaml
+│   │
+│   ├── 0200-seed-data/              # Initial / reference data
+│   │   ├── 0201-insert-default-roles.yaml
+│   │   └── 0202-insert-admin-user.yaml
+│   │
+│   ├── 0300-indexes/                # Indexes
+│   │   ├── 0301-user-indexes.yaml
+│   │   └── 0302-role-indexes.yaml
+│   │
+│   ├── 0400-constraints/            # FKs, unique, check constraints
+│   │   ├── 0401-add-fk-user-role.yaml
+│   │   └── 0402-add-user-unique.yaml
+│   │
+│   ├── 0500-views/                  # Views / materialized views
+│   │   └── 0501-create-user-summary-view.yaml
+│   │
+│   ├── 0600-functions/              # Functions / triggers / stored procedures
+│   │   ├── 0601-create-audit-function.yaml
+│   │   └── 0602-create-timestamp-trigger.yaml
+│   │
+│   ├── 0700-patches/                # Patches / fixes / schema updates
+│   │   ├── 0701-add-status-column.yaml
+│   │   ├── 0702-fill-status-default.yaml
+│   │   └── 0703-set-status-not-null.yaml
+│   │
+│   ├── 0800-rollbacks/              # Optional rollback scripts
+│   │   └── 0801-rollback-user-column.yaml
+│   │
+│   └── 0900-env-specific/           # Optional environment-specific changes
+│       ├── 0901-dev.yaml
+│       └── 0902-test.yaml
+│
+└── v2/                              # Future version
+    └── db.changelog-master.yaml
