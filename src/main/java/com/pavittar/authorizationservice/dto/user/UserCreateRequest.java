@@ -1,10 +1,15 @@
 package com.pavittar.authorizationservice.dto.user;
 
-import com.pavittar.authorizationservice.dto.BaseDTO;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-import java.util.UUID;
-
-public class UserCreateRequest extends BaseDTO {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+public class UserCreateRequest {
 
     private String name;
     private String email;
